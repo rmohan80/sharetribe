@@ -12,6 +12,12 @@ class SearchPage extends Component {
   constructor(props, context) {
     super(props, context);
     this.listings = listingsByIds(props.searchPage.listings, props.searchPage.currentPage) || [];
+
+    this.listings.map((l) => {
+      const price = l.get('price');
+      console.log(l.get('id'), 'distance:', l.get('distance').get('value'), l.get('distance').get('unit'), 'price', price != null ? price.get('fractionalAmount') : null, price != null ? price.get('code') : null);
+    });
+    debugger;
   }
 
   render() {
